@@ -60,13 +60,19 @@ class TextDecrypt {
             }
 
             this.iterations += 1 / 3;
-        }, 30);
+        }, 60); // Increased from 30ms to 60ms for slower effect
     }
 }
 
 // Initialize decrypt effect on scroll
 const initDecryptEffect = () => {
     const decryptElements = document.querySelectorAll('.decrypt');
+    
+    // Set initial text content to be visible
+    decryptElements.forEach(el => {
+        const originalText = el.getAttribute('data-value') || el.textContent;
+        el.textContent = originalText;
+    });
     
     const observerOptions = {
         threshold: 0.5,
@@ -220,29 +226,10 @@ const initCardTilt = () => {
 };
 
 // ========================================
-// Typing Effect for Hero Code Block
+// Typing Effect - Disabled (no code block)
 // ========================================
 const initCodeTypingEffect = () => {
-    const codeLines = document.querySelectorAll('.code-line');
-    let delay = 500;
-
-    codeLines.forEach((line, index) => {
-        const text = line.textContent;
-        line.textContent = '';
-        line.style.opacity = '1';
-
-        setTimeout(() => {
-            let charIndex = 0;
-            const typeInterval = setInterval(() => {
-                if (charIndex < text.length) {
-                    line.textContent += text[charIndex];
-                    charIndex++;
-                } else {
-                    clearInterval(typeInterval);
-                }
-            }, 30);
-        }, delay + (index * 200));
-    });
+    // Disabled - code block removed from hero
 };
 
 // ========================================
