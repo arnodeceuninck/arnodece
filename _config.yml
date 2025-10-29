@@ -1,0 +1,13 @@
+# GitHub Pages Jekyll Configuration
+# This file ensures GitHub Pages serves your static files correctly
+
+# Disable Jekyll processing
+include:
+  - "_*"
+  
+# Exclude unnecessary files from the published site
+exclude:
+  - README.md
+  - .gitignore
+  - .vscode/
+  - .idea/
