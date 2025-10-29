@@ -183,56 +183,14 @@ const initScrollReveal = () => {
 };
 
 // ========================================
-// Cursor Glow Effect (Desktop Only)
+// Cursor Glow Effect - DISABLED for more authentic feel
 // ========================================
 const initCursorGlow = () => {
-    if (window.innerWidth < 768) return; // Skip on mobile
-
-    const glow = document.createElement('div');
-    glow.className = 'cursor-glow';
-    glow.style.cssText = `
-        position: fixed;
-        width: 400px;
-        height: 400px;
-        border-radius: 50%;
-        background: radial-gradient(circle, rgba(14, 165, 233, 0.08), transparent 70%);
-        pointer-events: none;
-        z-index: 9999;
-        transform: translate(-50%, -50%);
-        transition: opacity 0.3s;
-        opacity: 0;
-    `;
-    document.body.appendChild(glow);
-
-    let mouseX = 0, mouseY = 0;
-    let glowX = 0, glowY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        glow.style.opacity = '1';
-    });
-
-    document.addEventListener('mouseleave', () => {
-        glow.style.opacity = '0';
-    });
-
-    // Smooth following animation
-    const animateGlow = () => {
-        glowX += (mouseX - glowX) * 0.1;
-        glowY += (mouseY - glowY) * 0.1;
-        
-        glow.style.left = glowX + 'px';
-        glow.style.top = glowY + 'px';
-        
-        requestAnimationFrame(animateGlow);
-    };
-    
-    animateGlow();
+    // Disabled - removed for cleaner, more professional appearance
 };
 
 // ========================================
-// Project Card Tilt Effect (Desktop Only)
+// Project Card Tilt Effect - Subtle version
 // ========================================
 const initCardTilt = () => {
     if (window.innerWidth < 768) return;
@@ -248,8 +206,9 @@ const initCardTilt = () => {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
 
-            const rotateX = ((y - centerY) / centerY) * -10;
-            const rotateY = ((x - centerX) / centerX) * 10;
+            // Reduced tilt angles for more subtle effect
+            const rotateX = ((y - centerY) / centerY) * -3;
+            const rotateY = ((x - centerX) / centerX) * 3;
 
             card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
         });
@@ -287,36 +246,17 @@ const initCodeTypingEffect = () => {
 };
 
 // ========================================
-// Floating Animation for Hero Visual
+// Floating Animation - Disabled for cleaner feel
 // ========================================
 const initFloatingAnimation = () => {
-    const codeAnimation = document.querySelector('.code-animation');
-    
-    if (codeAnimation) {
-        let position = 0;
-        const float = () => {
-            position += 0.01;
-            const y = Math.sin(position) * 10;
-            codeAnimation.style.transform = `translateY(${y}px)`;
-            requestAnimationFrame(float);
-        };
-        float();
-    }
+    // Disabled for more professional, static appearance
 };
 
 // ========================================
-// Parallax Effect
+// Parallax Effect - Disabled for cleaner experience
 // ========================================
 const initParallax = () => {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.hero-visual');
-        
-        parallaxElements.forEach(el => {
-            const speed = 0.5;
-            el.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-    });
+    // Disabled - keeping content static for better readability
 };
 
 // ========================================
