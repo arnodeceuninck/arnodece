@@ -472,7 +472,7 @@ a:hover {
    ======================================== */
 .contact {
     padding: var(--spacing-lg) 0;
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
 }
 
 .contact-intro {
